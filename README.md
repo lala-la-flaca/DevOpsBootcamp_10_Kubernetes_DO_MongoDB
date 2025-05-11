@@ -222,26 +222,26 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
    
 
   7. Verify that the ingress resource is active:
-       
-   ```bash
-   
-   ```
-   
-   <img src="" width=800 />
-   
-  8. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
-        
-   ```bash
-   
-   ```
+     
+     ```bash
+
+     ```
    
    <img src="" width=800 />
    
-  9. Add a new database and collection. Verify that the changes persist due to the enabled volume storage in DigitalOcean.
-        
-   ```bash
+  9. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
+     
+     ```bash
+
+     ```
    
-   ```
+   <img src="" width=800 />
+   
+  10. Add a new database and collection. Verify that the changes persist due to the enabled volume storage in DigitalOcean.
+
+     ```bash
+
+     ```
    
    <img src="" width=800 />
    
