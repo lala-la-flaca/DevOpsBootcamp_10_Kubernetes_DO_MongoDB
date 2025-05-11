@@ -182,21 +182,21 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
    <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/23%20loadbalancer%20on%20DO.PNG" width=800 />
    
 4. Ensure the ingress controller pod is running.
-     
+
    ```bash
-   kubecyl get pod   
+   kubectl get pod
    ```
+
+   <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/24%20pods.png" width=800 />
    
-   <img src=""https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/24%20pods.png width=800 />
-   
-5. Configure routing rules in the ingress.yaml file. Note that the host field only accepts domain names—not IP addresses.
+7. Configure routing rules in the ingress.yaml file. Note that the host field only accepts domain names—not IP addresses.
 
     <details><summary><strong> 💡 Tip: No Domain Name Available  </strong></summary>
      Because DigitalOcean does not provide a default domain name, you must use a fake hostname to complete the ingress.yaml file. Update your /etc/hosts file to map the LoadBalancer IP to a fake domain:
       
       ```bash
            vim /etc/hosts
-        ```
+      ```
       ```bash
        165.227.253.30 mongo.local
       ```
