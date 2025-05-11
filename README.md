@@ -193,14 +193,19 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 
     <details><summary><strong> 💡 Tip: No Domain Name Available  </strong></summary>
      Because DigitalOcean does not provide a default domain name, you must use a fake hostname to complete the ingress.yaml file. Update your /etc/hosts file to map the LoadBalancer IP to a fake domain:
+      
       ```bash
-         vim /etc/hosts
-         165.227.253.30 mongo.local
+           vim /etc/hosts
+        ```
+      ```bash
+       165.227.253.30 mongo.local
       ```
-      <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/25%20eidting%20the%20file%20to%20add%20the%20fake%20hostname.png" width=800 />
+   
+   <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/25%20eidting%20the%20file%20to%20add%20the%20fake%20hostname.png" width=800 />
+  
   </details>
   
-<img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/26%20using%20the%20fake%20host%20just%20mapped.png" width=800 />
+  <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/26%20using%20the%20fake%20host%20just%20mapped.png" width=800 />
    
   6. Apply the ingress.yaml file:
      
@@ -216,19 +221,19 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
      ```bash
      kubectl get ingress
      ```
-   
-   <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/28%20checking%20ingress.png" width=800 />
-   
-  9. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
-     
-   <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/29%20mongo%20express%20access%20via%20ingress%20config.png" width=800 />
-   
-  10. Add a new database and collection. Verify that the changes persist due to the enabled volume storage in DigitalOcean.
 
-   <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/30%20mongo%20express%20with%20db%20persisten%20bcd%20volumes.png" width=800 />
+     <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/28%20checking%20ingress.png" width=800 />
+   
+  8. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
+
+     <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/29%20mongo%20express%20access%20via%20ingress%20config.png" width=800 />
+   
+  9. Add a new database and collection. Verify that the changes persist due to the enabled volume storage in DigitalOcean.
+
+      <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/30%20mongo%20express%20with%20db%20persisten%20bcd%20volumes.png" width=800 />
    
   
-  11. Scale down the k8 cluster
+  10. Scale down the k8 cluster
       
       ```bash
       kubectl scale --replicas=0 statefulset/mongodb
@@ -236,7 +241,7 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
       ```
       <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/31%20scaling%20down.png" width=800 />
       
-  12. Scale up the k8 cluster.
+  11. Scale up the k8 cluster.
 
       ```bash
       kubectl scale --replicas=3 statefulset/mongodb
@@ -244,7 +249,7 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
       ```
       <img src="https://github.com/lala-la-flaca/DevOpsBootcamp_10_Kubernetes_DO_MongoDB/blob/main/Img/32%20scale%20up.png" width=800 />
       
-  13. Uninstall MongoDB and its components. 
+  12. Uninstall MongoDB and its components. 
 
       ```bash
       helm uninstall mongodb
