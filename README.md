@@ -29,34 +29,175 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 
 ## Creating a Managed K8 Cluster using DigitalOcean Kubernetes Engine.
 1. Sign in to DigitalOcean and create a Kubernetes cluster.
-2. Configure the cluster by specifying the node pool name, data center region, cluster capacity, and adding three nodes.
-3. In the Overview section of the cluster configuration, download the cluster configuration file.
-4. Update the file permissions to read-only.
-5. Set the KUBECONFIG environment variable to the path of the configuration file.
-6. Verify that the nodes are active
+
+   <img src="" width=800 />
+   
+3. Configure the cluster by specifying the node pool name, data center region, cluster capacity, and adding three nodes.
+   
+   <img src="" width=800 />
+   
+5. In the Overview section of the cluster configuration, download the cluster configuration file.
+   
+   <img src="" width=800 />
+   
+7. Update the file permissions to read-only.
+
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
+9. Set the KUBECONFIG environment variable to the path of the configuration file.
+    
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
+11. Verify that the nodes are active
+
+    ```bash
+    
+    ```
+
+    <img src="" width=800 />
 
 ## Deploying replicated MongoDB in DigitalOcean using Helm charts and enabling data Persistence. 
 1. Add the Bitnami Helm repository:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 2. Search the Bitnami repository for available charts:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 3. Search for the MongoDB chart:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 4. Create a helm-mongodb.yaml file to override default values (e.g., architecture type, replica count, persistence settings, and authentication).
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 5. Install the MongoDB chart using your custom values:
+      
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 6. Verify that the MongoDB pods are running and three replicas are active:
+      
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 7. Check all installed components:
-8. Confirm that the MongoDB secret was created:.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
+8. Confirm that the MongoDB secret was created:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 9. Verify that persistent volumes were created in DigitalOcean.
+      
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 
 ## Deploying Mongo-Express
 1. Deploy Mongo-Express using a YAML configuration similar to the previous demo.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 2. Verify that the Mongo-Express pod is running.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 3. Check the Mongo-Express logs to ensure it connected to MongoDB.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 
 
 ## Deploying and Configuring Ingress to access Mongo-Express via WebUI
 1. Add the ingress-nginx repository:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 2. Install the ingress controller and enable automatic public IP allocation:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 3. Verify that the ingress LoadBalancer was created in DigitalOcean.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 4. Ensure the ingress controller pod is running.
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
 5. Configure routing rules in the ingress.yaml file. Note that the host field only accepts domain names—not IP addresses.
 
     <details><summary><strong> 💡 Tip: No Domain Name Available  </strong></summary>
@@ -66,10 +207,44 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
          165.227.253.30 mongo.local
       ```
   </details>
+
+   ```
+   
+   <img src="" width=800 />
+   
   6. Apply the ingress.yaml file:
+     
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
+
   7. Verify that the ingress resource is active:
+       
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
   8. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
-  9. Add a new database and collection. Verify that the changes persist due to enabled volume storage in DigitalOcean.
+        
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
+  9. Add a new database and collection. Verify that the changes persist due to the enabled volume storage in DigitalOcean.
+        
+   ```bash
+   
+   ```
+   
+   <img src="" width=800 />
+   
   
   
   
