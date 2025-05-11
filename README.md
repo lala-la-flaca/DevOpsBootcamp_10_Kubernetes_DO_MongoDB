@@ -16,7 +16,7 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 ## 🎯 Features
 
 - Create a managed K8 cluster with Digital Ocean Kubernetes Engine.
-- Deploy a replicated MongoDB service in Digital Ocean Kubernetes cluster using Helm chart.
+- Deploy a replicated MongoDB service in a Digital Ocean Kubernetes cluster using a Helm chart.
 - Configure Datapersistence for MongoDB with Digital Ocean's Cloud storage.
 - Deploy UI Mongo-Express for MongoDB.
 - Deploy and configure Nginx Ingress to access the UI application from a browser. 
@@ -29,7 +29,7 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 
 ## Creating a managed K8 cluster using DigitalOcean Kubernetes Engine.
 1. Go to Digital Ocean and Create a Kubernetes Cluster.
-2. Configure the K8 cluster by providing the name of the pool, datacenter, select the cluster capacity, and add three nodes.
+2. Configure the K8 cluster by providing the name of the pool, datacenter, selecting the cluster capacity, and adding three nodes.
 3. Navigate to the cluster configuration and under the overview section download the Cluster configuration file.
 4. Change the permission to the configuration file to only give read access.
 5. Assign the file to the KUBECONFIG environment variable
@@ -47,15 +47,24 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 9. Verify that the Volumes were created in DigitalOcean to persist data.
 
 ## Deploying Mongo-Express
-1. Apply the Mongo-Express deployment similar to previous demo.
-2. Verify that The Mongo-Express pod is running.
-3. Verify thhe Mongo-Express logs.
+1. Apply the Mongo-Express deployment similar to the previous demo.
+2. Verify that the Mongo-Express pod is running.
+3. Verify the Mongo-Express logs.
 
 
 ## Deploying and Configuring Ingress to access Mongo-Express via WebUI
 1. Add the ingress-nginx repository to the cluster.
-2. Install the ingress controller and pass the attribute to allocate a public IP automatically.
-3. Verify that the ingress controller is running.
-4. Configuring rules to route traffic to our host domain.
-   No Doi
+2. Install the ingress controller and automatically pass the attribute to allocate a public IP.
+3. Verify that the ingress Load Balancer was created in Digital Ocean
+4. Verify that the ingress controller is running.
+5. Configuring rules to route traffic to our host domain.
 
+    <details><summary><strong> 💡 No host name available  </strong></summary>
+     As we are using Digital Ocean, this cloud provider does not provide a hostname; therefore, we must use a fake host to complete the ingress.yaml file.
+     To do this, modify the /etc/hosts using vim editor and add the mapping between the public ip address and the fake host as follows:
+     ```bash
+     vim /etc/hosts
+  
+     165.227.253.30 mongo.local
+     ```
+  </details>
