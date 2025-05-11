@@ -27,44 +27,50 @@ This demo project is part of **Kubernetes Module** from Nana DevOps Bootcamp. It
 
 ## ⚙️ Project Configuration
 
-## Creating a managed K8 cluster using DigitalOcean Kubernetes Engine.
-1. Go to Digital Ocean and Create a Kubernetes Cluster.
-2. Configure the K8 cluster by providing the name of the pool, datacenter, selecting the cluster capacity, and adding three nodes.
-3. Navigate to the cluster configuration and under the overview section download the Cluster configuration file.
-4. Change the permission to the configuration file to only give read access.
-5. Assign the file to the KUBECONFIG environment variable
-6. Verify the nodes
+## Creating a Managed K8 Cluster using DigitalOcean Kubernetes Engine.
+1. Sign in to DigitalOcean and create a Kubernetes cluster.
+2. Configure the cluster by specifying the node pool name, data center region, cluster capacity, and adding three nodes.
+3. In the Overview section of the cluster configuration, download the cluster configuration file.
+4. Update the file permissions to read-only.
+5. Set the KUBECONFIG environment variable to the path of the configuration file.
+6. Verify that the nodes are active
 
-## Deploying replicated MongoDB in DigitalOcean using Helm charts and configuring data persistence. 
-1. Add the Bitnami repository to he cluster.
-2. Search in the Bitnami repository for the available charts.
-3. Search the MongoDB charts.
-4. Create the helm-mongodb.yaml to override the values from the chart. We set the architecture type, number of replicas, persistence configuration, and authentication.
-5. Install the MongoDB chart passing our configuration values.
-6. Verify the running pods and check that the three MongoDB replicas are running.
-7. Verify all the components installed.
-8. Verify that the secret was created.
-9. Verify that the Volumes were created in DigitalOcean to persist data.
+## Deploying replicated MongoDB in DigitalOcean using Helm charts and enabling data Persistence. 
+1. Add the Bitnami Helm repository:
+2. Search the Bitnami repository for available charts:
+3. Search for the MongoDB chart:
+4. Create a helm-mongodb.yaml file to override default values (e.g., architecture type, replica count, persistence settings, and authentication).
+5. Install the MongoDB chart using your custom values:
+6. Verify that the MongoDB pods are running and three replicas are active:
+7. Check all installed components:
+8. Confirm that the MongoDB secret was created:.
+9. Verify that persistent volumes were created in DigitalOcean.
 
 ## Deploying Mongo-Express
-1. Apply the Mongo-Express deployment similar to the previous demo.
+1. Deploy Mongo-Express using a YAML configuration similar to the previous demo.
 2. Verify that the Mongo-Express pod is running.
-3. Verify the Mongo-Express logs.
+3. Check the Mongo-Express logs to ensure it connected to MongoDB.
 
 
 ## Deploying and Configuring Ingress to access Mongo-Express via WebUI
-1. Add the ingress-nginx repository to the cluster.
-2. Install the ingress controller and automatically pass the attribute to allocate a public IP.
-3. Verify that the ingress Load Balancer was created in Digital Ocean
-4. Verify that the ingress controller is running.
-5. Configuring rules to route traffic to our host domain.
+1. Add the ingress-nginx repository:
+2. Install the ingress controller and enable automatic public IP allocation:
+3. Verify that the ingress LoadBalancer was created in DigitalOcean.
+4. Ensure the ingress controller pod is running.
+5. Configure routing rules in the ingress.yaml file. Note that the host field only accepts domain names—not IP addresses.
 
-    <details><summary><strong> 💡 No host name available  </strong></summary>
-     As we are using Digital Ocean, this cloud provider does not provide a hostname; therefore, we must use a fake host to complete the ingress.yaml file.
-     To do this, modify the /etc/hosts using vim editor and add the mapping between the public ip address and the fake host as follows:
-     ```bash
-     vim /etc/hosts
-  
-     165.227.253.30 mongo.local
-     ```
+    <details><summary><strong> 💡 Tip: No Domain Name Available  </strong></summary>
+     Because DigitalOcean does not provide a default domain name, you must use a fake hostname to complete the ingress.yaml file. Update your /etc/hosts file to map the LoadBalancer IP to a fake domain:
+      ```bash
+         vim /etc/hosts
+         165.227.253.30 mongo.local
+      ```
   </details>
+  6. Apply the ingress.yaml file:
+  7. Verify that the ingress resource is active:
+  8. Access Mongo-Express in a web browser using the fake host (e.g., http://mongo.local)
+  9. Add a new database and collection. Verify that the changes persist due to enabled volume storage in DigitalOcean.
+  
+  
+  
+  
